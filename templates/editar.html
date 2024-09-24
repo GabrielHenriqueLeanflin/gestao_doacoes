@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Doação</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Editar Doação</h1>
+    </header>
+    <div class="container">
+        <form action="{{ url_for('editar', id=doacao[0]) }}" method="POST">
+            <label for="nome">Nome do Item:</label>
+            <input type="text" id="nome" name="nome" value="{{ doacao[1] }}" required>
+
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" id="quantidade" name="quantidade" value="{{ doacao[2] }}" required>
+
+            <label for="tipo">Tipo de Doação:</label>
+            <input type="text" id="tipo" name="tipo" value="{{ doacao[3] }}" required>
+
+            <input type="submit" value="Salvar Alterações">
+        </form>
+        <a href="{{ url_for('index') }}" class="button">Voltar</a>
+    </div>
+</body>
+</html>

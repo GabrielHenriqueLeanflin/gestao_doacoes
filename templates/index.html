@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Doações</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Sistema de Gerenciamento de Doações</h1>
+    </header>
+    <div class="container">
+        <a href="{{ url_for('adicionar') }}" class="button">Adicionar Nova Doação</a>
+        
+        {% for doacao in doacoes %}
+        <div class="card">
+            <div>
+                <h2>{{ doacao[1] }}</h2>
+                <p><strong>Quantidade:</strong> {{ doacao[2] }}</p>
+                <p><strong>Tipo:</strong> {{ doacao[3] }}</p>
+            </div>
+            <div class="actions">
+                <a href="{{ url_for('editar', id=doacao[0]) }}" class="edit">Editar</a>
+                <a href="{{ url_for('deletar', id=doacao[0]) }}" class="delete">Deletar</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
